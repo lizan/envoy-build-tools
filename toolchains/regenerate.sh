@@ -31,6 +31,8 @@ if [[ -z "$(git diff HEAD --name-only)" ]]; then
 fi
 
 if [[ "true" == "${COMMIT_TOOLCHAINS}" ]]; then
+  # Add [skip ci] in commit message to prevent CI (Azure Pipelies, CirlceCI) to run again on 
+  # automated commit.
   COMMIT_MSG="Regenerate toolchains from $(git rev-parse HEAD)
 
   [skip ci]
